@@ -10,9 +10,11 @@ import Grid from "@material-ui/core/Grid";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
+import AlbedoImage from "./2018_Albedo.png"
 
 //IMPORT DATA HERE
 import text from "./VegetationData.json";
+import albedo_data from "./SurfaceAlbedoData.json"
 
 class Circle extends Component {
   render() {
@@ -117,7 +119,7 @@ function processData(data) {
 //put data in the form [{color: "some rgb value", coordinates: [{year: "2016", frequency: "some frequency"}, ...]}...]
 //if your JSON file is in the same format as mine, the processData method should work for you too. Just pass in the text from the JSON file
 var EVIdata = processData(text);
-var Albedodata; //fill this out @Deepta
+var Albedodata = processData(albedo_data); //fill this out @Deepta
 var SSTdata; //fill this out @Amitav
 
 const EVIframeProps = {
@@ -163,22 +165,22 @@ const EVIframeProps = {
 
 //@Deepta change the "lines" to your data, change title, margins
 const AlbedoframeProps = {
-  lines: EVIdata,
+  lines: Albedodata,
   lineType: "linepercent",
   size: [700, 400],
   margin: { left: 100, bottom: 90, right: 30, top: 40 },
   xAccessor: "date",
   yAccessor: "frequency",
-  title: <text> EVI in May of 2016-2020 </text>,
+  title: <text> Surface Albedo in May of 2016-2020 </text>,
   lineStyle: (d, i) => ({
-    stroke: EVIdata[i]["color"],
+    stroke: Albedodata[i]["color"],
     strokeWidth: 3,
     fill: "none",
   }),
 
   title: (
     <text textAnchor="middle" fontSize="25px">
-      EVI in the Month of May
+      Surface Albedo in the Month of May
     </text>
   ),
   axes: [
@@ -267,10 +269,10 @@ export default class App extends Component {
           }
           <Panel
             frameProps={EVIframeProps}
-            data={EVIdata}
-            image={EVIImage}
+            data={Albedodata}
+            image={AlbedoImage}
             dataType={"Albedo"}
-            description={"Add description here"}
+            description={"The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective. The graph shown here was constructed by retrieving netCDF data from NASA GES DISC and then determining the frequency of pixels in each albedo range, separated by color. The graph shows the surface albedo data of the Long Island region in May from 2016 to 2020."}
           />
           {
             //@Amitav change the data to SSTdata and change image + description
