@@ -282,7 +282,7 @@ export default class App extends Component {
             data={SSTdata}
             image={SSTImage}
             dataType={"SST"}
-            description={"Sea Surface Temperature (SST) is the temperature of the water at a depth between 1mm and 20m. The graph was made using NASA Aqua MODIS netCDF data."}
+            description={"Sea Surface Temperature (SST) is the temperature of the water between 1mm and 20m deep. The graph was made using NASA Aqua MODIS netCDF data."}
           />
         </div>
       </div>
