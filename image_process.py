@@ -23,8 +23,12 @@ class ImageProcessor():
         return self.color_frequencies
 
 
-f = open("VegetationData.txt", "a")
+f = open("VegetationData.json", "a")
+f.write("{")
 for i in ("2016_EVI.png", "2017_EVI.png", "2018_EVI.png", "2019_EVI.png", "2020_EVI.png"):
     processor = ImageProcessor(i)
     processor.process()
-    f.write(str(processor.color_frequencies))
+    f.write('"' + str(i[0:4]) + '"' + " : " +
+            str(processor.color_frequencies) + ", ")
+
+f.write("}")

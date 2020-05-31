@@ -1,0 +1,57 @@
+{
+  "2016": [
+    { "color": "1", "freq": 1039 },
+    { "color": "2", "freq": 4230 },
+    { "color": "3", "freq": 11567 },
+    { "color": "4", "freq": 39094 },
+    { "color": "5", "freq": 46993 },
+    { "color": "6", "freq": 8742 },
+    { "color": "7", "freq": 1348 },
+    { "color": "8", "freq": 871 },
+    { "color": "9", "freq": 774 }
+  ],
+  "2017": [
+    { "color": "1", "freq": 866 },
+    { "color": "2", "freq": 1741 },
+    { "color": "3", "freq": 3555 },
+    { "color": "4", "freq": 10557 },
+    { "color": "5", "freq": 20696 },
+    { "color": "6", "freq": 30361 },
+    { "color": "7", "freq": 34026 },
+    { "color": "8", "freq": 914 },
+    { "color": "9", "freq": 7029 }
+  ],
+  "2018": [
+    { "color": "1", "freq": 866 },
+    { "color": "2", "freq": 2896 },
+    { "color": "3", "freq": 6792 },
+    { "color": "4", "freq": 15056 },
+    { "color": "5", "freq": 13277 },
+    { "color": "6", "freq": 28953 },
+    { "color": "7", "freq": 25273 },
+    { "color": "8", "freq": 871 },
+    { "color": "9", "freq": 13162 }
+  ],
+  "2019": [
+    { "color": "1", "freq": 897 },
+    { "color": "2", "freq": 3898 },
+    { "color": "3", "freq": 10071 },
+    { "color": "4", "freq": 10994 },
+    { "color": "5", "freq": 32625 },
+    { "color": "6", "freq": 37942 },
+    { "color": "7", "freq": 14518 },
+    { "color": "8", "freq": 871 },
+    { "color": "9", "freq": 1097 }
+  ],
+  "2020": [
+    { "color": "1", "freq": 1003 },
+    { "color": "2", "freq": 4443 },
+    { "color": "3", "freq": 12962 },
+    { "color": "4", "freq": 28382 },
+    { "color": "5", "freq": 39824 },
+    { "color": "6", "freq": 27317 },
+    { "color": "7", "freq": 1396 },
+    { "color": "8", "freq": 0 },
+    { "color": "9", "freq": 0 }
+  ]
+}
