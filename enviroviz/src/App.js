@@ -52,6 +52,7 @@ export default class App extends Component {
     return (
       <div>
         <div className="App">
+          <text> EVI graph </text>
           <XYFrame {...frameProps} tooltipStyles />
         </div>
       </div>
