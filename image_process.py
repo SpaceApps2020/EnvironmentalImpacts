@@ -14,7 +14,8 @@ class ImageProcessor():
 
     def process(self):
         for i in range(0, 9):
-            self.color_frequencies.append({"color": str(i + 1), "freq": 0})
+            self.color_frequencies.append(
+                {"color": "rgb" + str(self.colors[i]) + "", "freq": 0})
         for i in range(self.x_size):
             for j in range(self.y_size):
                 if(self.pix[i, j] in self.colors):
@@ -23,8 +24,12 @@ class ImageProcessor():
         return self.color_frequencies
 
 
-f = open("VegetationData.txt", "a")
+f = open("VegetationData.json", "a")
+f.write("{")
 for i in ("2016_EVI.png", "2017_EVI.png", "2018_EVI.png", "2019_EVI.png", "2020_EVI.png"):
     processor = ImageProcessor(i)
     processor.process()
-    f.write(str(processor.color_frequencies))
+    f.write('"' + str(i[0:4]) + '"' + " : " +
+            str(processor.color_frequencies) + ", ")
+
+f.write("}")
