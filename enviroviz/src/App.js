@@ -2,38 +2,34 @@ import React, { Component } from "react";
 import "../node_modules/react-linechart/dist/styles.css";
 import XYFrame from "semiotic/lib/XYFrame";
 import NetworkFrame from "semiotic/lib/NetworkFrame";
+import text from "./VegetationData.json";
 
-const data = [
-  {
-    color: "1",
-    coordinates: [
-      { date: 2016, frequency: 50 },
-      { date: 2017, frequency: 54 },
-      { date: 2018, frequency: 100 },
-    ],
-  },
-];
-const theme = [
-  "#ac58e5",
-  "#E0488B",
-  "#9fd0cb",
-  "#e0d33a",
-  "#7566ff",
-  "#533f82",
-  "#7a255d",
-  "#365350",
-  "#a19a11",
-  "#3f4482",
-];
+const data = [];
+
+for (var i = 0; i < 9; i++) {
+  data.push({ color: text["2016"][i]["color"], coordinates: [] });
+}
+
+for (var i = 0; i < 9; i++) {
+  for (var j = 2016; j <= 2020; j++) {
+    data[i].coordinates.push({
+      date: j.toString(),
+      frequency: text[j.toString()][i]["freq"],
+    });
+  }
+}
+
+console.log(data);
+
 const frameProps = {
   lines: data,
-  size: [700, 400],
-  margin: { left: 80, bottom: 90, right: 10, top: 40 },
+  size: [800, 400],
+  margin: { left: 100, bottom: 90, right: 30, top: 40 },
   xAccessor: "date",
   yAccessor: "frequency",
   lineStyle: (d, i) => ({
-    stroke: theme[i],
-    strokeWidth: 4,
+    stroke: data[i]["color"],
+    strokeWidth: 3,
     fill: "none",
   }),
   title: <text textAnchor="middle"></text>,
@@ -45,7 +41,7 @@ const frameProps = {
     {
       orient: "bottom",
       label: { name: "Weeks from Opening Day", locationDistance: 55 },
-      tickValues: [2016, 2017, 2018],
+      tickValues: [2016, 2017, 2018, 2019, 2020],
     },
   ],
   hoverAnnotation: true,
@@ -56,14 +52,7 @@ export default class App extends Component {
     return (
       <div>
         <div className="App">
-          <XYFrame
-            {...frameProps}
-            tooltipContent={(d) => (
-              <div className="tooltip-content">
-                <p>Name: {d.frequency}</p>
-              </div>
-            )}
-          />
+          <XYFrame {...frameProps} tooltipStyles />
         </div>
       </div>
     );
