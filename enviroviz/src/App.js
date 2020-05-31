@@ -7,15 +7,16 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
 import AlbedoImage from "./2018_Albedo.png";
-import SSTImage from './2018_STT_feb-may.png';
+import SSTImage from "./2018_STT_feb-may.png";
 
 //IMPORT DATA HERE
 import text from "./VegetationData.json";
-import sst_data from './TemperatureData.json';
+import sst_data from "./TemperatureData.json";
 import albedo_data from "./SurfaceAlbedoData.json";
 
 class Circle extends Component {
@@ -88,7 +89,10 @@ class Panel extends Component {
             <Grid item>
               <div style={{ paddingTop: 40 }}>
                 <img src={this.props.image} with="350px" height="250px" />
-                <Typography align="center"> Sample {this.props.dataType} Image </Typography>
+                <Typography align="center">
+                  {" "}
+                  Sample {this.props.dataType} Image{" "}
+                </Typography>
               </div>
             </Grid>
             <Grid item>
@@ -224,7 +228,7 @@ const SSTframeProps = {
 
   title: (
     <text textAnchor="middle" fontSize="25px">
-		Average SST from Febrary 1st to May 31st
+      Average SST from Febrary 1st to May 31st
     </text>
   ),
   axes: [
@@ -252,10 +256,26 @@ const SSTframeProps = {
 export default class App extends Component {
   render() {
     return (
-      <div style={{ padding: 30 }}>
+      <div className="App" style={{ padding: 30 }} backgroundColor="grey">
         <Typography color="textPrimary" variant="h3" align="center">
           Environmental Impact of COVID-19
         </Typography>
+        <div style={{ padding: 30 }}>
+          <Paper>
+            <div style={{ padding: 10 }}>
+              <Typography variant="h6">
+                In the NASA SpaceApps COVID-19 Challenge, we were tasked with
+                examining the "potential impacts of reduced human traffic" in
+                protected environments, such as beaches, parks, marine monuments
+                and other wilderness areas. These impacts could manifest in
+                different forms, for example, a reduction in land degradation, a
+                change in water quality, or a change in vegetation growth. This
+                project focuses on the Long Island area. Click on the tabs below
+                to learn more!
+              </Typography>
+            </div>
+          </Paper>
+        </div>
         <div style={{ padding: 30 }}>
           <Panel
             frameProps={EVIframeProps}
@@ -286,7 +306,9 @@ export default class App extends Component {
             data={SSTdata}
             image={SSTImage}
             dataType={"SST"}
-            description={"Sea Surface Temperature (SST) is the temperature of the water between 1mm and 20m deep. The graph was made using NASA Aqua MODIS netCDF data."}
+            description={
+              "Sea Surface Temperature (SST) is the temperature of the water between 1mm and 20m deep. The graph was made using NASA Aqua MODIS netCDF data."
+            }
           />
         </div>
       </div>
