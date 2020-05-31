@@ -10,11 +10,11 @@ import Grid from "@material-ui/core/Grid";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
-import STTImage from './2018_STT_feb-may.png';
+import SSTImage from './2018_STT_feb-may.png';
 
 //IMPORT DATA HERE
 import text from "./VegetationData.json";
-import stt_data from './TemperatureData.json';
+import sst_data from './TemperatureData.json';
 
 class Circle extends Component {
   render() {
@@ -86,7 +86,7 @@ class Panel extends Component {
             <Grid item>
               <div style={{ paddingTop: 40 }}>
                 <img src={this.props.image} with="350px" height="250px" />
-                <Typography align="center"> Sample EVI Image </Typography>
+                <Typography align="center"> Sample {this.props.dataType} Image </Typography>
               </div>
             </Grid>
             <Grid item>
@@ -207,7 +207,7 @@ const AlbedoframeProps = {
 
 //@Amitav change the "lines" to your data, change title, margins
 const SSTframeProps = {
-  lines: STTdata,
+  lines: SSTdata,
   lineType: "linepercent",
   size: [700, 400],
   margin: { left: 100, bottom: 90, right: 30, top: 40 },
@@ -215,14 +215,14 @@ const SSTframeProps = {
   yAccessor: "frequency",
   title: <text> EVI in May of 2016-2020 </text>,
   lineStyle: (d, i) => ({
-    stroke: STTdata[i]["color"],
+    stroke: SSTdata[i]["color"],
     strokeWidth: 3,
     fill: "none",
   }),
 
   title: (
     <text textAnchor="middle" fontSize="25px">
-		Average STT from Febrary 1st to May 31st
+		Average SST from Febrary 1st to May 31st
     </text>
   ),
   axes: [
@@ -279,10 +279,10 @@ export default class App extends Component {
           }
           <Panel
             frameProps={SSTframeProps}
-            data={STTdata}
-            image={STTImage}
-            dataType={"STT"}
-            description={"Sea Surface Temperature (STT) is the temperature of the water at a depth between 1mm and 20m. The graph was made using NASA Aqua MODIS netCDF data."}
+            data={SSTdata}
+            image={SSTImage}
+            dataType={"SST"}
+            description={"Sea Surface Temperature (SST) is the temperature of the water at a depth between 1mm and 20m. The graph was made using NASA Aqua MODIS netCDF data."}
           />
         </div>
       </div>
