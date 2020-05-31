@@ -24,12 +24,12 @@ class ImageProcessor():
         return self.color_frequencies
 
 
-f = open("VegetationData.json", "a")
-f.write("{")
+f = open("./enviroviz/src/VegetationData.json", "w")
+f.write("{\n")
 for i in ("2016_EVI.png", "2017_EVI.png", "2018_EVI.png", "2019_EVI.png", "2020_EVI.png"):
-    processor = ImageProcessor(i)
+    processor = ImageProcessor("./EVI_Images/" + i)
     processor.process()
     f.write('"' + str(i[0:4]) + '"' + " : " +
-            str(processor.color_frequencies) + ", ")
+            str(processor.color_frequencies) + ",\n ")
 
-f.write("}")
+f.write("\n}")
