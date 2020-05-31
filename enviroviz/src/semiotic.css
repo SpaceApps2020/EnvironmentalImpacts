@@ -18,8 +18,7 @@
   border: 1px solid #ddd;
   color: black;
   padding: 10px;
-  z-index: 100;
-  transform: translateX(-50%) translateY(5px);
+  z-index: 1;
   min-width: 120px;
 }
 
