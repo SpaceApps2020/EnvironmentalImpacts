@@ -10,9 +10,11 @@ import Grid from "@material-ui/core/Grid";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
+import STTImage from './2018_STT_feb-may.png';
 
 //IMPORT DATA HERE
 import text from "./VegetationData.json";
+import stt_data from './TemperatureData.json';
 
 class Circle extends Component {
   render() {
@@ -118,7 +120,7 @@ function processData(data) {
 //if your JSON file is in the same format as mine, the processData method should work for you too. Just pass in the text from the JSON file
 var EVIdata = processData(text);
 var Albedodata; //fill this out @Deepta
-var SSTdata; //fill this out @Amitav
+var SSTdata = processData(sst_data); //fill this out @Amitav
 
 const EVIframeProps = {
   lines: EVIdata,
@@ -205,7 +207,7 @@ const AlbedoframeProps = {
 
 //@Amitav change the "lines" to your data, change title, margins
 const SSTframeProps = {
-  lines: EVIdata,
+  lines: STTdata,
   lineType: "linepercent",
   size: [700, 400],
   margin: { left: 100, bottom: 90, right: 30, top: 40 },
@@ -213,14 +215,14 @@ const SSTframeProps = {
   yAccessor: "frequency",
   title: <text> EVI in May of 2016-2020 </text>,
   lineStyle: (d, i) => ({
-    stroke: EVIdata[i]["color"],
+    stroke: STTdata[i]["color"],
     strokeWidth: 3,
     fill: "none",
   }),
 
   title: (
     <text textAnchor="middle" fontSize="25px">
-      EVI in the Month of May
+		Average STT from Febrary 1st to May 31st
     </text>
   ),
   axes: [
@@ -276,11 +278,11 @@ export default class App extends Component {
             //@Amitav change the data to SSTdata and change image + description
           }
           <Panel
-            frameProps={EVIframeProps}
-            data={EVIdata}
-            image={EVIImage}
-            dataType={"SST"}
-            description={"Add description here"}
+            frameProps={SSTframeProps}
+            data={STTdata}
+            image={STTImage}
+            dataType={"STT"}
+            description={"Sea Surface Temperature (STT) is the temperature of the water at a depth between 1mm and 20m. The graph was made using NASA Aqua MODIS netCDF data."}
           />
         </div>
       </div>
