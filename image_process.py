@@ -14,7 +14,8 @@ class ImageProcessor():
 
     def process(self):
         for i in range(0, 9):
-            self.color_frequencies.append({"color": str(i + 1), "freq": 0})
+            self.color_frequencies.append(
+                {"color": "rgb" + str(self.colors[i]) + "", "freq": 0})
         for i in range(self.x_size):
             for j in range(self.y_size):
                 if(self.pix[i, j] in self.colors):
