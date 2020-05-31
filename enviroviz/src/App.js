@@ -10,11 +10,11 @@ import Grid from "@material-ui/core/Grid";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
-import AlbedoImage from "./2018_Albedo.png"
+import AlbedoImage from "./2018_Albedo.png";
 
 //IMPORT DATA HERE
 import text from "./VegetationData.json";
-import albedo_data from "./SurfaceAlbedoData.json"
+import albedo_data from "./SurfaceAlbedoData.json";
 
 class Circle extends Component {
   render() {
@@ -268,11 +268,13 @@ export default class App extends Component {
             //@Deepta change the data to Albedodata and add an image + description
           }
           <Panel
-            frameProps={EVIframeProps}
+            frameProps={AlbedoframeProps}
             data={Albedodata}
             image={AlbedoImage}
             dataType={"Albedo"}
-            description={"The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective. The graph shown here was constructed by retrieving netCDF data from NASA GES DISC and then determining the frequency of pixels in each albedo range, separated by color. The graph shows the surface albedo data of the Long Island region in May from 2016 to 2020."}
+            description={
+              "The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective. The graph shown here was constructed by retrieving netCDF data from NASA GES DISC and then determining the frequency of pixels in each albedo range, separated by color. The graph shows the surface albedo data of the Long Island region in May from 2016 to 2020."
+            }
           />
           {
             //@Amitav change the data to SSTdata and change image + description
