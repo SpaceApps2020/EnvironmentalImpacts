@@ -407,7 +407,7 @@ export default class App extends Component {
             image={SSTImage}
             dataType={"SST"}
             description={
-              "The graph was made using NASA Aqua MODIS netCDF data."
+              "The graph was made using NASA Aqua MODIS netCDF data. We looked at the average SST in the long island area from February 1st to May 31st between 2016 and 2020. The graph shows the frequency of each temperature over time."
             }
           />
         </div>
