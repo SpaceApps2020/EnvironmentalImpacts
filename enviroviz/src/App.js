@@ -47,9 +47,8 @@ class Panel extends Component {
       colors.push(this.props.data[i]["color"]);
     }
     return (
-      <ExpansionPanel>
+      <ExpansionPanel expanded="true">
         <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
           className="summary"
@@ -338,14 +337,17 @@ export default class App extends Component {
         </div>
         <Grid container direction="row">
           <div
-            style={{ paddingLeft: 30, width: (window.innerWidth - 180) / 3 }}
+            style={{
+              paddingLeft: 30,
+              width: (window.innerWidth - 180) / 3,
+            }}
           >
             <FlipCard
               frontText={
                 "EVI, or Enhanced vegetation index is a measure of vegetation greenness. "
               }
               backText={
-				"EVI is a vegitation index designed to enhance the vegetation signale with improved sensitivity in high biomass regions. An example of its success was reforted by Alfredo Huete and his colleagues in 2006, when they were able to show for the first time that the Amazon Forest does infact exhibit growth during the dry season, a discovery that changed our understanding of the carbon cycle. Overall, EVI has allowed us to gain a better understanding of vegetation density and health, and was adopted as a standard product by NASA. Ibe reasion that is popular with users is because it can eliminate background and atmosphere noises."
+                "EVI is a vegitation index designed to enhance the vegetation signale with improved sensitivity in high biomass regions. An example of its success was reforted by Alfredo Huete and his colleagues in 2006, when they were able to show for the first time that the Amazon Forest does infact exhibit growth during the dry season, a discovery that changed our understanding of the carbon cycle. Overall, EVI has allowed us to gain a better understanding of vegetation density and health, and was adopted as a standard product by NASA. Ibe reasion that is popular with users is because it can eliminate background and atmosphere noises."
               }
             />
           </div>
@@ -356,8 +358,8 @@ export default class App extends Component {
               frontText={
                 "The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective."
               }
-              backText={ 
-				"Albedo is the measure of the diffuse reflection of solar radiation out of the total solar radiation and measured on a scale from 0 to 1 (where 0 reflects no radiation and 1 reflects all radiation. Surface albedo is defined as the ratio of radiosity to the irradiance received by a surface. The proportion of reflected radiation is defined by the properties of the surface itself, and the spectral and angular distribution of solar radiation reaching the Earth's surface. These factors vary with atmospheric composition and geographic location and time. Unless a wavelength is provided, albedo refers to the entire spectrum of solar radiation. Albedo can affect temperature, though the degree to which it affects the temperature is dependent on the insulation at the specific location. For example, the arctic and the Antarctic are both cold due to low isolation, and although the Sahara desert is significantly hotter, both have relatively high albedo."
+              backText={
+                "Albedo is the measure of the diffuse reflection of solar radiation out of the total solar radiation and measured on a scale from 0 to 1 (where 0 reflects no radiation and 1 reflects all radiation. Surface albedo is defined as the ratio of radiosity to the irradiance received by a surface. The proportion of reflected radiation is defined by the properties of the surface itself, and the spectral and angular distribution of solar radiation reaching the Earth's surface. These factors vary with atmospheric composition and geographic location and time. Unless a wavelength is provided, albedo refers to the entire spectrum of solar radiation. Albedo can affect temperature, though the degree to which it affects the temperature is dependent on the insulation at the specific location. For example, the arctic and the Antarctic are both cold due to low isolation, and although the Sahara desert is significantly hotter, both have relatively high albedo."
               }
             />
           </div>
