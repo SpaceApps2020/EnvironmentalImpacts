@@ -8,6 +8,11 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import ReactCardFlip from "react-card-flip";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
 
 //PUT ONE IMAGE INTO THE src FILE AND IMPORT IT
 import EVIImage from "./2018_EVI.png";
@@ -253,6 +258,62 @@ const SSTframeProps = {
   ),
 };
 
+class FlipCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isFlipped: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e) {
+    this.setState((prevState) => ({ isFlipped: !prevState.isFlipped }));
+  }
+  render() {
+    return (
+      <Card>
+        <CardContent>
+          {!this.state.isFlipped ? (
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <div style={{ paddingBottom: 10 }}>
+                  <Typography variant="h9">{this.props.frontText}</Typography>
+                </div>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={this.handleClick}
+                  fullWidth="true"
+                  color="primary"
+                >
+                  SIGNIFICANCE
+                </Button>
+              </Grid>
+            </Grid>
+          ) : (
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <div style={{ paddingBottom: 10 }}>
+                  <Typography variant="h9">{this.props.backText}</Typography>
+                </div>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={this.handleClick}
+                  fullWidth="true"
+                  color="primary"
+                >
+                  DESCRIPTION
+                </Button>
+              </Grid>
+            </Grid>
+          )}
+        </CardContent>
+      </Card>
+    );
+  }
+}
+
 export default class App extends Component {
   render() {
     return (
@@ -276,6 +337,44 @@ export default class App extends Component {
             </div>
           </Paper>
         </div>
+        <Grid container direction="row">
+          <div
+            style={{ paddingLeft: 30, width: (window.innerWidth - 180) / 3 }}
+          >
+            <FlipCard
+              frontText={
+                "EVI, or Enhanced vegetation index is a measure of vegetation greenness. "
+              }
+              backText={
+                "Regions with a higher EVI value have more and healthier vegetation compared to regions with a lower EVI value."
+              }
+            />
+          </div>
+          <div
+            style={{ paddingLeft: 30, width: (window.innerWidth - 180) / 3 }}
+          >
+            <FlipCard
+              frontText={
+                "The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective."
+              }
+              backText={
+                "A warm SST can cause tropical cylogensis, the development and strengthening of tropical cyclones, over the ocean. SST also affects the behavior of the Earth's atmosphere. While it is important for tropical cylogensis, it is also an important factor in determining the formation of sea for and sea breezes."
+              }
+            />
+          </div>
+          <div
+            style={{ paddingLeft: 30, width: (window.innerWidth - 180) / 3 }}
+          >
+            <FlipCard
+              frontText={
+                "Sea Surface Temperature (SST) is the temperature of the water between 1mm and 20m deep. The graph was made using NASA Aqua MODIS netCDF data."
+              }
+              backText={
+                "A warm SST can cause tropical cylogensis, the development and strengthening of tropical cyclones, over the ocean. SST also affects the behavior of the Earth's atmosphere. While it is important for tropical cylogensis, it is also an important factor in determining the formation of sea for and sea breezes."
+              }
+            />
+          </div>
+        </Grid>
         <div style={{ padding: 30 }}>
           <Panel
             frameProps={EVIframeProps}
@@ -283,7 +382,7 @@ export default class App extends Component {
             image={EVIImage}
             dataType={"EVI"}
             description={
-              "EVI, or Enhanced vegetation index is a measure of vegetation greenness. Regions with a higher EVI value have more and healthier vegetation compared to regions with a lower EVI value. The graph on the right was created by using NASA MODIS HDF data to generate an image of the Long Island region and then counting the number of pixels at each EVI threshold. The graph represents the change in the EVI of Long Island during the month of May over time from 2016 to 2020."
+              "The graph on the right was created by using NASA MODIS HDF data to generate an image of the Long Island region and then counting the number of pixels at each EVI threshold. The graph represents the change in the EVI of Long Island during the month of May over time from 2016 to 2020."
             }
           />
           {
@@ -295,7 +394,7 @@ export default class App extends Component {
             image={AlbedoImage}
             dataType={"Albedo"}
             description={
-              "The surface albedo measures what proportion of incident light or radiation is reflected by a surface. Ice has a very high albedo, as it reflects a large proportion of incidenct light, while regions such as dense forests have low albedos, as they are dark and nonreflective. The graph shown here was constructed by retrieving netCDF data from NASA GES DISC and then determining the frequency of pixels in each albedo range, separated by color. The graph shows the surface albedo data of the Long Island region in May from 2016 to 2020. A decrease in net surface albedo may help combat global warming."
+              "The graph shown here was constructed by retrieving netCDF data from NASA GES DISC and then determining the frequency of pixels in each albedo range, separated by color. The graph shows the surface albedo data of the Long Island region in May from 2016 to 2020."
             }
           />
           {
@@ -307,7 +406,7 @@ export default class App extends Component {
             image={SSTImage}
             dataType={"SST"}
             description={
-              "Sea Surface Temperature (SST) is the temperature of the water between 1mm and 20m deep. The graph was made using NASA Aqua MODIS netCDF data."
+              "The graph was made using NASA Aqua MODIS netCDF data."
             }
           />
         </div>

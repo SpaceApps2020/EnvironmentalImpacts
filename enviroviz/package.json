@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.3",
     "react": "^16.13.1",
+    "react-card-flip": "^1.0.10",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-linechart": "^1.1.12",
