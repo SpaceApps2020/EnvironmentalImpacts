@@ -14,7 +14,7 @@ This project was created using NASA remote sensing data from [NASA Goddard Earth
 Here is a graph that shows EVI over time
 <img src = "Screen%20Shot%202020-06-02%20at%2011.11.54%20AM.png" />
 
-<img src = "EVI_Images/2016_EVI.png" width ="180" /><img src = "EVI_Images/2017_EVI.png" width ="180" /><img src = "EVI_Images/2018_EVI.png" width ="180" /><img src = "EVI_Images/2019_EVI.png" width ="180" /><img src = "EVI_Images/2020_EVI.png" width ="180" />
+<img src = "EVI_Images/2016_EVI.png" width ="170" /><img src = "EVI_Images/2017_EVI.png" width ="170" /><img src = "EVI_Images/2018_EVI.png" width ="170" /><img src = "EVI_Images/2019_EVI.png" width ="170" /><img src = "EVI_Images/2020_EVI.png" width ="170" />
 
 ...created from the images above that range from May 2016 to May 2020.
 
