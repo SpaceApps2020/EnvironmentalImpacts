@@ -33,4 +33,4 @@ Then run the following commands in your terminal:
 3. `yarn install`
 4. `yarn start`
 
-This should automatically open `http://localhost:3000/` on your computer where the webapp will be running!
+This should automatically open `http://localhost:3000/` on your computer where the webapp will be running! A demo of the website can be found [here](https://www.youtube.com/watch?v=ef34ZidJ8TY).
