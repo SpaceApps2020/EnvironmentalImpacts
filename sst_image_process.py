@@ -20,7 +20,7 @@ class ImageProcessor():
                     self.color_frequencies[self.colors.index(self.pix[i, j])]["freq"] += 1
         return self.color_frequencies
 
-f = open("./enviroviz/src/TemperatureData.json", "w")
+f = open("../enviroviz/src/TemperatureData.json", "w")
 f.write("{\n")
 
 for i in ('2016 feb-may.png', '2017 feb-may.png', '2018 feb-may.png', '2019 feb-may.png', '2020 feb-may.png'):
