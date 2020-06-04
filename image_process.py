@@ -24,7 +24,7 @@ class ImageProcessor():
         return self.color_frequencies
 
 
-f = open("./enviroviz/src/VegetationData.json", "w")
+f = open("../enviroviz/src/VegetationData.json", "w")
 f.write("{\n")
 for i in ("2016_EVI.png", "2017_EVI.png", "2018_EVI.png", "2019_EVI.png", "2020_EVI.png"):
     processor = ImageProcessor("./EVI_Images/" + i)
