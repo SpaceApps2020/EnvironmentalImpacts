@@ -24,7 +24,7 @@ f = open("../enviroviz/src/TemperatureData.json", "w")
 f.write("{\n")
 
 for i in ('2016 feb-may.png', '2017 feb-may.png', '2018 feb-may.png', '2019 feb-may.png', '2020 feb-may.png'):
-    path = 'SST_Data/' + i
+    path = '../SST_Images/' + i
     processor = ImageProcessor(path)
     f.write('"' + str(i[0:4]) + '"' + " : " + str(processor.process()) + ",\n ")
 
